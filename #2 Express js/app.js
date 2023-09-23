@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 
@@ -10,9 +11,11 @@ const _form = `
     <button type='submit'>Submit</button>
 </form>
 `
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/done',(req,res,next)=>{
-    res.send('<h1>Check Your File</h1>')
+    res.send('<h1>Check Your File</h1>');
+    console.log(req.body);
 })
 
 app.use('/',(req,res,next)=>{
