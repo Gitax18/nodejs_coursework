@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const adminRoute = require('./routes/admin')
 const homeRouter = require('./routes/home')
@@ -17,7 +18,7 @@ app.use(homeRouter);
 
 // middleware to handle page which are not present
 app.use((req,res,next)=>{
-    res.status(404).send('<h1>Error: 404</h1> <h2>Page not Found</h2>')
+    res.status(404).sendFile(path.join(__dirname, 'views', '404.html'))
 })
 
 app.listen(3000);
