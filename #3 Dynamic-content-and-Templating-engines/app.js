@@ -14,6 +14,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 // middleware for admin routes
 app.use('/admin',adminRoute.route);
 
+// setting globle values
+app.set('view engine', 'pug');
+app.set('views', 'views');
+
 // middleware for home route
 app.use(shopRouter);
 
