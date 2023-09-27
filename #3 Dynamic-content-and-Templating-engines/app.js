@@ -23,7 +23,7 @@ app.use(shopRouter);
 
 // middleware to handle page which are not present
 app.use((req,res,next)=>{
-    res.status(404).sendFile(path.join(__dirname, 'views', '404.html'))
+    res.status(404).render('404')
 })
 
 app.listen(3000);
