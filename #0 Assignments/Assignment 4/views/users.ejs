@@ -1,0 +1,19 @@
+<%- include('partials/head.ejs') %>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/users.css">
+</head>
+<body>
+    <%- include('partials/navigation.ejs') %>
+    <h1 class="main-title" style="margin: 1rem auto;">All Users</h1>
+    <% if (data.length > 0 ){ %>
+        <div class="users-data">
+            <ul class="users">
+                <% data.forEach(user => { %>
+                    <li class="user"><%= user.firstname%> <%= user.lastname %></li>
+                <% }) %>
+            </ul>
+        </div>
+    <% } else { %>
+        <h1>No Users</h1>
+    <% } %>
+</body>
