@@ -1,0 +1,29 @@
+.todo-container{
+    height: 80vh;
+    width: 80vw;
+    background-color: blue;
+    color: #fff;
+    margin: 1rem auto;
+    padding: 1rem 2rem 2rem;
+}
+
+
+
+.todos{
+    background-color: red;
+    height: 90%;
+    display: flex;
+    padding: .5rem;
+    gap: 1rem;
+    width: 88%;
+    margin: auto;
+    overflow-y: auto;
+    flex-wrap: wrap;
+
+}
+
+.todo-item{
+    background-color: black;
+    aspect-ratio: 1/1;
+    height: 20rem;
+}
