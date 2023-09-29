@@ -1,0 +1,34 @@
+<%- include('partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <%- include('partials/navbar.ejs') %>
+    <main>
+        <section class="container">
+            <h1 class="main-title">Create To Do</h1>
+            <form action="/submit" method="post" class="main-form">
+                <div class="placeholder">
+                    <label for="title">Title:</label>
+                    <input type="text" name="title" id="title">
+                </div>
+                <div class="placeholder">
+                    <label for="description">Description:</label>
+                    <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                </div>
+                <p>Type:</p>
+                <div class="placeholder-chk">
+                    <div class="chkbox-holder">
+                        <input type="checkbox" name="type-main" id="main">
+                        <label for="main">Main</label>
+                    </div>
+                    <div class="chkbox-holder">
+                        <input type="checkbox" name="type-work" id="work">
+                        <label for="work">Work</label>
+                    </div>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
