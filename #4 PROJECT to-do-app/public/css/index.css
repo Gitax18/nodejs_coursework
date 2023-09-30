@@ -19,7 +19,8 @@
 }
 
 .main-form{
-    width: 30rem;
+    width: 100%;
+    max-width: 30rem;
     margin: auto;
     padding: 0 2rem;
     display: flex;
@@ -81,4 +82,12 @@ button{
 label, p{
     font-size: 1.4rem;
     letter-spacing: .75px;
+}
+
+@media screen and (max-width: 380px) {
+    .container{
+        height: 80vh;
+        margin: 1rem auto;
+        width: 95%;
+    }
 }
