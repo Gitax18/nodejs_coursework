@@ -1,0 +1,33 @@
+<%- include('partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <%- include('partials/navbar.ejs') %>
+    <main>
+        <section class="todo-container">
+            <h1 class="main-title">WORK TODOS</h1>
+            <section class="todos">
+                <% todos.forEach(todo => { %>
+                    <div class="todo-item">
+                        <header class="card-header">
+                            <h2 class="todo-title"><%= todo.title %></h2>
+                            <button class="todo-done">&#10003;</button>
+                        </header>
+                        <p class="todo-desc">
+                            <%= todo.description %>
+                        </p>
+                    </div>
+                <% }) %>
+                    
+            </section>
+        </section>
+    </main>
+
+    <script src="/scripts/todo.js"></script>
+
+    <!-- ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

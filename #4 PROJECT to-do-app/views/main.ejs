@@ -8,43 +8,17 @@
         <section class="todo-container">
             <h1 class="main-title">MAIN TODOS</h1>
             <section class="todos">
+                <% todos.forEach(todo => { %>
                     <div class="todo-item">
                         <header class="card-header">
-                            <h2 class="todo-title">Title</h2>
+                            <h2 class="todo-title"><%= todo.title %></h2>
                             <button class="todo-done">&#10003;</button>
                         </header>
                         <p class="todo-desc">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo itaque possimus odio! Voluptates hic vitae distinctio repudiandae nihil, eius nesciunt praesentium ducimus omnis, iusto nobis qui voluptas sapiente optio magni. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, a? Laborum optio expedita rerum cumque quas nulla amet natus! Vitae voluptatibus amet quisquam doloribus. Velit.
+                            <%= todo.description %>
                         </p>
                     </div>
-                    <div class="todo-item">
-                        <header class="card-header">
-                            <h2 class="todo-title">Title</h2>
-                            <button class="todo-done">&#10003;</button>
-                        </header>                        
-                        <p class="todo-desc">
-                            adf adsf adsf asdf asdf asdf 
-                        </p>
-                    </div>
-                    <div class="todo-item">
-                        <header class="card-header">
-                            <h2 class="todo-title">Title</h2>
-                            <button class="todo-done">&#10003;</button>
-                        </header>                        
-                        <p class="todo-desc">
-                            adf adsf adsf asdf asdf asdf 
-                        </p>
-                    </div>
-                    <div class="todo-item">
-                        <header class="card-header">
-                            <h2 class="todo-title">Title</h2>
-                            <button class="todo-done">&#10003;</button>
-                        </header>                        
-                        <p class="todo-desc">
-                            adf adsf adsf asdf asdf asdf 
-                        </p>
-                    </div>
-                    
+                <% }) %>
             </section>
         </section>
     </main>
