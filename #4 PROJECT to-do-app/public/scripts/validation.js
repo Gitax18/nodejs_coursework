@@ -39,6 +39,12 @@ function validate(){
     return validate   
 }
 
+form.addEventListener('keypress', function(e) {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+    }
+});
+
 btnSub.addEventListener('click', (e)=>{
     const checked = validate();
     if(checked){
