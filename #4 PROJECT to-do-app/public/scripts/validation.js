@@ -39,10 +39,9 @@ function validate(){
     return validate   
 }
 
-form.addEventListener('submit', (e)=>{
-    e.preventDefault();
+btnSub.addEventListener('click', (e)=>{
     const checked = validate();
     if(checked){
-        location.href = form.getAttribute('action')
+        form.submit();
     }
 })
