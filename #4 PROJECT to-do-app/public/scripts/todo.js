@@ -4,7 +4,6 @@ const navbar = document.querySelector('.nav-elements');
 
 doneBtn.forEach(btn =>{
     btn.addEventListener('click', ()=>{
-        console.log(btn.textContent)
         if(btn.textContent === '✓') btn.textContent = '✗';
         else btn.textContent = '✓';
     
