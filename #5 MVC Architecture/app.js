@@ -1,9 +1,14 @@
+// Core and 3rd party modules
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
+// custom modules
 const adminRoute = require('./routes/admin')
 const shopRouter = require('./routes/shop');
+
+// controllers
+const notFoundController = require('./controllers/errors')
 
 const app = express();
 
@@ -22,11 +27,6 @@ app.set('views', 'views');
 app.use(shopRouter);
 
 // middleware to handle page which are not present
-app.use((req,res,next)=>{
-    res.status(404).render('404', {
-        pageTitle: 'Page not found',
-        path: ''
-    })
-})
+app.use(notFoundController.get404)
 
 app.listen(3000);
