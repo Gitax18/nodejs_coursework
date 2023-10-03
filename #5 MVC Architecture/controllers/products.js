@@ -15,9 +15,11 @@ exports.postAddProduct = (req,res,next)=>{
 }
 
 exports.getProducts = (req,res,next)=>{
-    res.render('shop', { 
-        prods: Product.fetchProducts(),
-        pageTitle: 'My Shoppy',
-        path: '/'
-    });
+    Product.fetchProducts(products=>{
+        res.render('shop', { 
+        prods: products,
+            pageTitle: 'My Shoppy',
+            path: '/'
+        });
+    })
 }
