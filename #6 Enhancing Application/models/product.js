@@ -14,6 +14,7 @@ module.exports = class Product {
     
     save(){
         let products = [];
+        this.id = Math.random().toString();
         const dataFile =  path.join(pathUtil, 'data', 'products.json');
         fs.readFile(dataFile, (err, fileContent)=>{
             if(!err){
