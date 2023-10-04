@@ -2,7 +2,21 @@
     </head>
     <body>
         <%- include('../partials-ejs/navbar.ejs') %>
-        <h1>Product Detail</h1>
+        <main class="centered">
+            <div class="centered">
+                <h1><%= product.title %></h1>
+                <hr>
+                <div>
+                    <img src="<%= product.imageURL %>" alt="<%= product.title %>">
+                </div>
+                <h3><%= product.price %></h3>
+                <p><%= product.description %></p>
+
+                <%- include('../partials-ejs/add-to-cart.ejs') %>
+            </div>
+        </main>
+
+
         <script src="/js/main.js"></script>
 
     </body>
