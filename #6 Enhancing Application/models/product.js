@@ -5,8 +5,11 @@ const pathUtil = require('../utils/path')
 
 
 module.exports = class Product {
-    constructor(t){
-        this.title = t;
+    constructor(title, price, imageURL, description){
+        this.title = title;
+        this.price = price;
+        this.imageURL = imageURL;
+        this.description = description;
     }
     
     save(){
