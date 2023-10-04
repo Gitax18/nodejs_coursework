@@ -22,7 +22,7 @@
                             <p class="product__description"><%= prdt.description %></p>
                         </div>
                         <div class="card__actions">
-                            <button class="btn">Add to Cart</button>
+                            <%- include('../partials-ejs/add-to-cart.ejs', {product: prdt}) %>
                         </div>
                     </article>
                 <% }) %>
