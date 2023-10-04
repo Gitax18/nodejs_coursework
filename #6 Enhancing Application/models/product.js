@@ -3,6 +3,14 @@ const fs = require('fs')
 
 const pathUtil = require('../utils/path')
 
+function getAllProducts(callback){
+    const dataFile =  path.join(path.dirname(require.main.filename), 'data', 'products.json');
+        fs.readFile(dataFile, (err,fileContent)=>{
+            if (!err){
+                 callback(JSON.parse(fileContent))
+            } else callback([])
+        }) 
+}
 
 module.exports = class Product {
     constructor(title, price, imageURL, description){
@@ -28,12 +36,13 @@ module.exports = class Product {
     }
 
     static fetchProducts(callback){
-        const dataFile =  path.join(path.dirname(require.main.filename), 'data', 'products.json');
-        fs.readFile(dataFile, (err,fileContent)=>{
-            if (!err){
-                 callback(JSON.parse(fileContent))
-            } else callback([])
+        getAllProducts(callback)
+    }
+
+    static findProduct(id, callback){
+        getAllProducts(products =>{
+            const product = products.find(prdt => prdt.id === id);
+            callback(product)
         })
-        
     }
 }
