@@ -22,7 +22,10 @@
                             <p class="product__description"><%= prdt.description %></p>
                         </div>
                         <div class="card__actions">
-                            <button class="btn">Add to Cart</button>
+                            <a href="/products/<%= prdt.id %>" class="btn">Details</a>
+                            <form action="/cart" method="post">
+                                <button class="btn">Add to Cart</button>
+                            </form>
                         </div>
                     </article>
                 <% }) %>
@@ -31,6 +34,8 @@
             <p>No Products</p>
         <% } %>
     </main>
+    <script src="/js/main.js"></script>
+
 </body>
 
 </html>
