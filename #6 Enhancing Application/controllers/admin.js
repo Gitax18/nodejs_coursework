@@ -9,13 +9,18 @@ exports.getAddProduct = (req,res,next)=>{
 }
 
 exports.postAddProduct = (req,res,next)=>{
-    const product = new Product(req.body.title);
+    const product = new Product(req.body.title, req.body.price, req.body.imageURL, req.body.description);
     product.save();
     res.redirect('/');
 }
 
 exports.postEditProduct = (req,res,next)=>{
-    console.table(res.body);
+    console.log('edit product');
+    res.redirect('/admin/edit-product');
+}
+
+exports.getDeleteProduct = (req,res, next)=>{
+    console.log('delete product');
     res.redirect('/admin/edit-product');
 }
 
