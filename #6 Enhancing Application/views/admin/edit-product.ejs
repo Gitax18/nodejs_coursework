@@ -1,41 +1,34 @@
-<%- include('../partials-ejs/head.ejs') %>
-    <link rel="stylesheet" href="/css/main.css">
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
     <link rel="stylesheet" href="/css/product.css">
 </head>
 
 <body>
-    <%- include('../partials-ejs/navbar.ejs') %>
+   <%- include('../includes/navigation.ejs') %>
+
     <main>
-        <h1>Edit Products</h1>
-        <% if (prods.length != 0) { %>
-            <div class="grid">
-                <% prods.forEach(prdt => { %>
-                    <article class="card product-item">
-                        <header class="card__header">
-                            <h1 class="product__title"><%= prdt.title %></h1>
-                        </header>
-                        <div class="card__image">
-                            <img src="<%= prdt.imageURL %>" alt="A Book">
-                        </div>
-                        <div class="card__content">
-                            <h2 class="product__price">$ <%= prdt.price %></h2>
-                            <p class="product__description"><%= prdt.description %></p>
-                        </div>
-                        <div class="card__actions">
-                            <a href="/admin/delete-product" class="btn">Delete</a>
-                            <form action="/admin/edit-product" method="post">
-                                <button  class="btn">Edit</button>
-                            </form>
-                        </div>
-                    </article>
-                <% }) %>
+        <form class="product-form" action="/admin/<% if (editing) { %>edit-product<% } else { %>add-product<% } %>" method="POST">
+            <div class="form-control">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" value="<% if (editing) { %><%= product.title %><% } %>">
             </div>
-        <% } else { %>
-            <p>No Products</p>
-        <% } %>
+            <div class="form-control">
+                <label for="imageUrl">Image URL</label>
+                <input type="text" name="imageUrl" id="imageUrl" value="<% if (editing) { %><%= product.imageUrl %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="price">Price</label>
+                <input type="number" name="price" id="price" step="0.01" value="<% if (editing) { %><%= product.price %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="description">Description</label>
+                <textarea name="description" id="description" rows="5"><% if (editing) { %><%= product.description %><% } %></textarea>
+            </div>
+            <% if (editing) { %>
+                <input type="hidden" value="<%= product.id %>" name="productId">
+            <% } %>
+
+            <button class="btn" type="submit"><% if (editing) { %>Update Product<% } else { %>Add Product<% } %></button>
+        </form>
     </main>
-    <script src="/js/main.js"></script>
-
-</body>
-
-</html>
+<%- include('../includes/end.ejs') %>
