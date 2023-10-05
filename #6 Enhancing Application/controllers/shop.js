@@ -1,4 +1,5 @@
 const Product = require('../models/product')
+const Cart = require('../models/cart')
 
 
 exports.getIndex = (req,res,next) =>{
@@ -42,7 +43,10 @@ exports.getCart = (req, res, next) =>{
 
 exports.postCart = (req, res, next) =>{
     const id = req.body.productID;
-    console.log(id)
+    Product.findProduct(id, product=>{
+        Cart.addProduct(id, product.price);
+    });
+
     res.render('shop/cart', {
         pageTitle : 'Your Cart',
         path : '/cart'
