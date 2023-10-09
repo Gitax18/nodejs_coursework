@@ -1,9 +1,12 @@
 const path = require('path');
 
+const Sequelize = require('sequelize');
 const express = require('express');
 const bodyParser = require('body-parser');
 
 const errorController = require('./controllers/errors');
+
+const seqEnv = require('./utils/database');
 
 const app = express();
 
@@ -21,6 +24,12 @@ app.use(shopRoutes);
 
 app.use(errorController.get404);
 
-app.listen(3000, ()=>{
-    console.log('server is listening at http://localhost:3000')
-});
+seqEnv.sync()
+    .then(result =>{
+        app.listen(3000, ()=>{
+            console.log('server is listening at http://localhost:3000')
+        });
+    }).catch(err =>{
+        console.log(err);
+    })
+
