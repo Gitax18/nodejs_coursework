@@ -1,5 +1,4 @@
 # TO DO APPLICATION
-- 🚧 Under Development ⚠️
 
 ## INSTALLATION PROCESS
 1. First, clone the repository (if already cloned then leave this step)
