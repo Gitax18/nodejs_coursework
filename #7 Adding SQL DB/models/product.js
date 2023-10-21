@@ -1,23 +1,20 @@
 const Sequelize = require('sequelize');
 
-const seqEnv = require('../utils/database');
+const sequelize = require('../util/database');
 
-const Product = seqEnv.define('product', {
+const Product = sequelize.define('product', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true
   },
-  title: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
+  title: Sequelize.STRING,
   price: {
     type: Sequelize.DOUBLE,
     allowNull: false
   },
-  imageURL: {
+  imageUrl: {
     type: Sequelize.STRING,
     allowNull: false
   },
